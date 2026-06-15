@@ -504,7 +504,7 @@ export default function Portfolio() {
                   { icon: Phone, label: "Phone", value: "8278771093", href: "tel:8278771093" },
                   { icon: Mail, label: "Email", value: "harish.pariihar@gmail.com", href: "mailto:harish.pariihar@gmail.com" },
                   { icon: MapPin, label: "Location", value: "Kunihar, Solan, Himachal Pradesh" },
-                  { icon: Globe, label: "Website", value: "harish-parihar.com", href: "https://harish-parihar.com" },
+                  
                   { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/harish-parihar", href: "https://linkedin.com/in/harish-parihar" },
                 ].map((c) => {
                   const Inner = (
