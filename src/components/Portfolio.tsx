@@ -496,9 +496,6 @@ export default function Portfolio() {
                 <a href="mailto:harish.pariihar@gmail.com" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
                   <Mail className="h-4 w-4" />
                 </a>
-                <a href="https://harish-parihar.com" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
-                  <Globe className="h-4 w-4" />
-                </a>
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
