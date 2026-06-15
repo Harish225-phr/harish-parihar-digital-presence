@@ -19,7 +19,10 @@ import {
   GraduationCap,
   Briefcase,
 } from "lucide-react";
-import heroImg from "@/assets/hero-workspace.jpg";
+import profileImg from "@/assets/harish-profile.jpg";
+
+const RESUME_URL =
+  "https://drive.google.com/file/d/1idzzwBmnFzUOcMnMnnSPBkXIEX6oDPgs/view";
 
 const techBadges = ["React.js", "JavaScript", "HTML5", "CSS3", "MongoDB", "GitHub"];
 
@@ -244,7 +247,7 @@ export default function Portfolio() {
                 <a href="#projects" className="btn-neon">
                   View Projects <ArrowRight className="h-4 w-4" />
                 </a>
-                <a href="#" className="btn-ghost">
+                <a href={RESUME_URL} target="_blank" rel="noreferrer" className="btn-ghost">
                   <Download className="h-4 w-4" /> Download Resume
                 </a>
                 <a href="#contact" className="btn-ghost">
@@ -268,14 +271,17 @@ export default function Portfolio() {
 
           <FadeIn delay={0.3} y={40}>
             <div className="relative">
-              <div className="animate-float glass overflow-hidden rounded-3xl p-2">
-                <img
-                  src={heroImg}
-                  alt="Developer workspace with React and JavaScript holographic panels"
-                  width={1024}
-                  height={1024}
-                  className="h-auto w-full rounded-2xl"
-                />
+              <div className="relative mx-auto aspect-square w-full max-w-md">
+                <div className="absolute -inset-6 rounded-full bg-[var(--neon)]/20 blur-3xl" />
+                <div className="animate-float relative h-full w-full overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_0_60px_rgba(0,255,136,0.25)] ring-1 ring-white/10">
+                  <img
+                    src={profileImg}
+                    alt="Harish Parihar — Front-End Developer"
+                    width={1024}
+                    height={1024}
+                    className="h-full w-full rounded-[1.6rem] object-cover"
+                  />
+                </div>
               </div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
