@@ -496,9 +496,6 @@ export default function Portfolio() {
                 <a href="mailto:harish.pariihar@gmail.com" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
                   <Mail className="h-4 w-4" />
                 </a>
-                <a href="https://harish-parihar.com" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
-                  <Globe className="h-4 w-4" />
-                </a>
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
@@ -507,7 +504,7 @@ export default function Portfolio() {
                   { icon: Phone, label: "Phone", value: "8278771093", href: "tel:8278771093" },
                   { icon: Mail, label: "Email", value: "harish.pariihar@gmail.com", href: "mailto:harish.pariihar@gmail.com" },
                   { icon: MapPin, label: "Location", value: "Kunihar, Solan, Himachal Pradesh" },
-                  { icon: Globe, label: "Website", value: "harish-parihar.com", href: "https://harish-parihar.com" },
+                  
                   { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/harish-parihar", href: "https://linkedin.com/in/harish-parihar" },
                 ].map((c) => {
                   const Inner = (
