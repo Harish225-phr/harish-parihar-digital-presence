@@ -9,6 +9,7 @@ import {
   Globe,
   Linkedin,
   Github,
+  Instagram,
   ExternalLink,
   Code2,
   Database,
@@ -66,6 +67,7 @@ const projects = [
     description:
       "Dynamic CMS dashboard built on a React.js architecture. Delivered 3 client websites in a single week using a custom content management workflow.",
     tech: ["React.js", "Node.js", "REST API", "MongoDB"],
+    link: "https://rural.hp.gov.in/",
   },
   {
     title: "Country Explorer App",
@@ -73,6 +75,7 @@ const projects = [
     description:
       "Interactive explorer for the REST Countries API featuring live search, region filtering, and a polished dark / light mode toggle.",
     tech: ["React.js", "REST API", "Tailwind", "Dark Mode"],
+    link: "https://hairsh-project.vercel.app/",
   },
   {
     title: "Heena Art By Ritu",
@@ -80,6 +83,7 @@ const projects = [
     description:
       "Premium business website with Netlify deployment, custom domain integration and on-page SEO optimization for organic discovery.",
     tech: ["React.js", "Netlify", "SEO", "Custom Domain"],
+    link: "https://heenaartbyritu.com/",
   },
 ];
 
@@ -422,7 +426,7 @@ export default function Portfolio() {
                   ))}
                 </div>
                 <div className="mt-6 flex gap-2">
-                  <a href="#" className="inline-flex items-center gap-1.5 rounded-full bg-[var(--neon)] px-3 py-1.5 text-xs font-semibold text-[#001a0e] transition-transform hover:-translate-y-0.5">
+                  <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-[var(--neon)] px-3 py-1.5 text-xs font-semibold text-[#001a0e] transition-transform hover:-translate-y-0.5">
                     Live <ExternalLink className="h-3 w-3" />
                   </a>
                   <a href="#" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs transition-colors hover:border-[var(--neon)] hover:text-[var(--neon)]">
@@ -490,8 +494,11 @@ export default function Portfolio() {
                 Open to full-time roles, freelance projects and collaboration on ambitious React.js builds.
               </p>
               <div className="mt-6 flex gap-3">
-                <a href="https://linkedin.com/in/harish-parihar" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
+                <a href="https://www.linkedin.com/in/harish-rajjput/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
                   <Linkedin className="h-4 w-4" />
+                </a>
+                <a href="https://www.instagram.com/harish.phr/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
+                  <Instagram className="h-4 w-4" />
                 </a>
                 <a href="mailto:harish.pariihar@gmail.com" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
                   <Mail className="h-4 w-4" />
@@ -504,8 +511,8 @@ export default function Portfolio() {
                   { icon: Phone, label: "Phone", value: "8278771093", href: "tel:8278771093" },
                   { icon: Mail, label: "Email", value: "harish.pariihar@gmail.com", href: "mailto:harish.pariihar@gmail.com" },
                   { icon: MapPin, label: "Location", value: "Kunihar, Solan, Himachal Pradesh" },
-                  
-                  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/harish-parihar", href: "https://linkedin.com/in/harish-parihar" },
+                  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/harish-rajjput", href: "https://www.linkedin.com/in/harish-rajjput/" },
+                  { icon: Instagram, label: "Instagram", value: "@harish.phr", href: "https://www.instagram.com/harish.phr/" },
                 ].map((c) => {
                   const Inner = (
                     <div className="glass glass-hover flex items-center gap-4 rounded-2xl p-4">
