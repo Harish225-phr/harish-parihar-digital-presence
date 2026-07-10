@@ -77,14 +77,60 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Harish Parihar — Front-End Developer & React.js Specialist" },
+      {
+        name: "description",
+        content:
+          "Harish Parihar — Front-End Developer with 1.5+ years of experience building modern, scalable web apps with React.js, JavaScript, and API integrations.",
+      },
+      { name: "author", content: "Harish Parihar" },
+      {
+        name: "keywords",
+        content:
+          "Harish Parihar, Harish Rajput, Harish Parihar portfolio, Harish Parihar developer, Front-End Developer, React.js Developer, JavaScript Developer, Dashboard Developer, harish.phr",
+      },
+      { name: "google-site-verification", content: "K_ZOBKy8GOYjydl0vwAMN_E8yQZWIdjZFdTzljSIxnU" },
+      { property: "og:title", content: "Harish Parihar — Front-End Developer & React.js Specialist" },
+      {
+        property: "og:description",
+        content:
+          "Official portfolio of Harish Parihar — React.js Developer building premium, scalable web experiences.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Harish Parihar" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Harish Parihar — Front-End Developer" },
+      {
+        name: "twitter:description",
+        content: "React.js Developer | Dashboard & Automation Specialist.",
+      },
+      { name: "robots", content: "index, follow" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Harish Parihar",
+          alternateName: ["Harish Rajput", "harish.phr"],
+          jobTitle: "Front-End Developer",
+          description:
+            "Front-End Developer with 1.5+ years of experience specializing in React.js, JavaScript, and scalable web applications.",
+          knowsAbout: [
+            "React.js",
+            "JavaScript",
+            "TypeScript",
+            "Front-End Development",
+            "Dashboard Development",
+            "API Integration",
+          ],
+          sameAs: [
+            "https://www.linkedin.com/in/harish-rajjput/",
+            "https://www.instagram.com/harish.phr/",
+          ],
+        }),
+      },
     ],
     links: [
       {
