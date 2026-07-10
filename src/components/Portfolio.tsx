@@ -494,7 +494,7 @@ export default function Portfolio() {
                 Open to full-time roles, freelance projects and collaboration on ambitious React.js builds.
               </p>
               <div className="mt-6 flex gap-3">
-                <a href="https://www.linkedin.com/in/harish-rajjput/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
+                <a href="https://www.linkedin.com/in/harish-pariihar/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
                   <Linkedin className="h-4 w-4" />
                 </a>
                 <a href="https://www.instagram.com/harish.phr/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
