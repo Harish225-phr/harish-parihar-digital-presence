@@ -6,7 +6,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
   Linkedin,
   Github,
   Instagram,
@@ -20,97 +19,21 @@ import {
   GraduationCap,
   Briefcase,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import profileImg from "@/assets/harish-profile.jpg";
+import {
+  RESUME_URL,
+  techBadges,
+  experience,
+  skills,
+  projects,
+  stats,
+  education,
+} from "@/lib/portfolio-data";
 
-const RESUME_URL =
-  "https://drive.google.com/file/d/1idzzwBmnFzUOcMnMnnSPBkXIEX6oDPgs/view";
-
-const techBadges = ["React.js", "JavaScript", "HTML5", "CSS3", "MongoDB", "GitHub"];
-
-const experience = [
-  {
-    role: "Front-End Developer",
-    period: "Jan 2025 — May 2026",
-    points: [
-      "Developed responsive web applications using React.js",
-      "Integrated REST APIs across dashboards and client portals",
-      "Improved application performance and load times",
-      "Owned the complete front-end development lifecycle",
-      "Collaborated closely with designers and backend teams",
-    ],
-  },
-  {
-    role: "Developer Intern",
-    period: "Oct 2024 — Dec 2024",
-    points: [
-      "Built responsive web pages from scratch",
-      "Fixed UI issues and shipped bug fixes",
-      "Tested applications across browsers and devices",
-      "Learned and applied Agile workflows",
-    ],
-  },
-];
-
-const skills = [
-  { icon: Code2, title: "Frontend Development", items: ["React.js", "JavaScript", "HTML5", "CSS3", "Responsive Design"] },
-  { icon: Workflow, title: "API & Integration", items: ["REST APIs", "Axios", "WordPress REST API"] },
-  { icon: Cpu, title: "CMS & Automation", items: ["WordPress", "Headless CMS", "Google Apps Script", "Workflow Automation"] },
-  { icon: Database, title: "Database", items: ["MongoDB", "SQL"] },
-  { icon: Wrench, title: "Tools", items: ["Git", "GitHub", "Bitbucket", "Netlify", "Vercel", "Hosting", "DNS"] },
-  { icon: Sparkles, title: "Other", items: ["SEO Basics", "Linux", "Debugging"] },
-];
-
-const projects = [
-  {
-    title: "Rural CMS Platform",
-    tag: "CMS · Dashboard",
-    description:
-      "Dynamic CMS dashboard built on a React.js architecture. Delivered 3 client websites in a single week using a custom content management workflow.",
-    tech: ["React.js", "Node.js", "REST API", "MongoDB"],
-    link: "https://rural.hp.gov.in/",
-  },
-  {
-    title: "Country Explorer App",
-    tag: "REST · UI",
-    description:
-      "Interactive explorer for the REST Countries API featuring live search, region filtering, and a polished dark / light mode toggle.",
-    tech: ["React.js", "REST API", "Tailwind", "Dark Mode"],
-    link: "https://hairsh-project.vercel.app/",
-  },
-  {
-    title: "Heena Art By Ritu",
-    tag: "Business · SEO",
-    description:
-      "Premium business website with Netlify deployment, custom domain integration and on-page SEO optimization for organic discovery.",
-    tech: ["React.js", "Netlify", "SEO", "Custom Domain"],
-    link: "https://heenaartbyritu.com/",
-  },
-];
-
-const stats = [
-  { value: 1.5, suffix: "+", label: "Years Experience" },
-  { value: 10, suffix: "+", label: "Websites Built" },
-  { value: 3, suffix: "+", label: "Live Client Projects" },
-  { value: 100, suffix: "%", label: "Responsive Design" },
-];
-
-const education = [
-  { title: "Bachelor of Computer Applications", org: "Shoolini University", period: "2025 — Present" },
-  { title: "Junior Software Developer Certification", org: "Vertex Institute", period: "2024" },
-  { title: "COPA Certification", org: "Vertex Institute", period: "2023 — 2024" },
-];
-
-function Section({
-  id,
-  children,
-  className = "",
-}: {
-  id?: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
+function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <section id={id} className={`relative mx-auto w-full max-w-7xl px-6 py-24 md:py-32 ${className}`}>
+    <section className={`relative mx-auto w-full max-w-7xl px-6 py-24 md:py-32 ${className}`}>
       {children}
     </section>
   );
@@ -181,40 +104,46 @@ export default function Portfolio() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      {/* Scroll progress */}
       <motion.div
         className="fixed left-0 right-0 top-0 z-50 h-[2px] origin-left"
         style={{ scaleX: progress, background: "var(--neon)" }}
       />
-
       <MouseGlow />
 
       {/* Nav */}
       <header className="fixed left-1/2 top-5 z-40 w-[min(92%,1100px)] -translate-x-1/2">
         <div className="glass flex items-center justify-between rounded-full px-5 py-3">
-          <a href="#home" className="font-display text-sm font-bold tracking-tight">
+          <Link to="/" className="font-display text-sm font-bold tracking-tight">
             HP<span className="text-[var(--neon)]">.</span>
-          </a>
+          </Link>
           <nav className="hidden gap-7 text-sm text-muted-foreground md:flex">
-            {["about", "experience", "skills", "projects", "contact"].map((s) => (
-              <a key={s} href={`#${s}`} className="capitalize transition-colors hover:text-[var(--neon)]">
-                {s}
-              </a>
+            {[
+              { to: "/about", label: "about" },
+              { to: "/experience", label: "experience" },
+              { to: "/skills", label: "skills" },
+              { to: "/projects", label: "projects" },
+              { to: "/contact", label: "contact" },
+            ].map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className="capitalize transition-colors hover:text-[var(--neon)]"
+                activeProps={{ className: "text-[var(--neon)]" }}
+              >
+                {s.label}
+              </Link>
             ))}
           </nav>
-          <a href="#contact" className="btn-neon text-xs">
+          <Link to="/contact" className="btn-neon text-xs">
             Hire Me <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </div>
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative flex min-h-screen items-center px-6 pt-32">
+      <section className="relative flex min-h-screen items-center px-6 pt-32">
         <div className="grid-bg absolute inset-0" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "var(--gradient-hero)" }}
-        />
+        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="glow-orb left-[-10%] top-1/4 h-[400px] w-[400px] bg-[var(--neon)]" />
         <div className="glow-orb right-[-5%] bottom-1/4 h-[350px] w-[350px] bg-emerald-500/40" />
 
@@ -243,29 +172,27 @@ export default function Portfolio() {
             </FadeIn>
             <FadeIn delay={0.3}>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                I build modern, scalable and user-friendly web applications with React.js, JavaScript and API integrations.
+                I build modern, scalable and user-friendly web applications with React.js,
+                JavaScript and API integrations.
               </p>
             </FadeIn>
             <FadeIn delay={0.4}>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#projects" className="btn-neon">
+                <Link to="/projects" className="btn-neon">
                   View Projects <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
                 <a href={RESUME_URL} target="_blank" rel="noreferrer" className="btn-ghost">
                   <Download className="h-4 w-4" /> Download Resume
                 </a>
-                <a href="#contact" className="btn-ghost">
+                <Link to="/contact" className="btn-ghost">
                   Contact Me
-                </a>
+                </Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.5}>
               <div className="mt-10 flex flex-wrap gap-2">
                 {techBadges.map((t) => (
-                  <span
-                    key={t}
-                    className="glass rounded-full px-3 py-1.5 text-xs text-muted-foreground"
-                  >
+                  <span key={t} className="glass rounded-full px-3 py-1.5 text-xs text-muted-foreground">
                     {t}
                   </span>
                 ))}
@@ -311,7 +238,7 @@ export default function Portfolio() {
       </section>
 
       {/* ABOUT */}
-      <Section id="about">
+      <Section>
         <FadeIn>
           <div className="mb-12 text-center">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--neon)]">About</span>
@@ -336,7 +263,7 @@ export default function Portfolio() {
       </Section>
 
       {/* EXPERIENCE */}
-      <Section id="experience">
+      <Section>
         <FadeIn>
           <div className="mb-14 text-center">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--neon)]">Journey</span>
@@ -374,7 +301,7 @@ export default function Portfolio() {
       </Section>
 
       {/* SKILLS */}
-      <Section id="skills">
+      <Section>
         <FadeIn>
           <div className="mb-14 text-center">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--neon)]">Toolkit</span>
@@ -403,7 +330,7 @@ export default function Portfolio() {
       </Section>
 
       {/* PROJECTS */}
-      <Section id="projects">
+      <Section>
         <FadeIn>
           <div className="mb-14 text-center">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--neon)]">Work</span>
@@ -429,7 +356,7 @@ export default function Portfolio() {
                   <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-[var(--neon)] px-3 py-1.5 text-xs font-semibold text-[#001a0e] transition-transform hover:-translate-y-0.5">
                     Live <ExternalLink className="h-3 w-3" />
                   </a>
-                  <a href="#" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs transition-colors hover:border-[var(--neon)] hover:text-[var(--neon)]">
+                  <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs transition-colors hover:border-[var(--neon)] hover:text-[var(--neon)]">
                     <Github className="h-3 w-3" /> Code
                   </a>
                 </div>
@@ -457,7 +384,7 @@ export default function Portfolio() {
       </Section>
 
       {/* EDUCATION */}
-      <Section id="education">
+      <Section>
         <FadeIn>
           <div className="mb-14 text-center">
             <span className="text-xs uppercase tracking-[0.3em] text-[var(--neon)]">Learning</span>
@@ -479,7 +406,7 @@ export default function Portfolio() {
       </Section>
 
       {/* CONTACT */}
-      <Section id="contact">
+      <Section>
         <div className="glass relative overflow-hidden rounded-3xl p-8 md:p-14">
           <div className="absolute -left-20 -top-20 h-60 w-60 rounded-full bg-[var(--neon)]/20 blur-3xl" />
           <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-emerald-500/20 blur-3xl" />
@@ -494,7 +421,7 @@ export default function Portfolio() {
                 Open to full-time roles, freelance projects and collaboration on ambitious React.js builds.
               </p>
               <div className="mt-6 flex gap-3">
-                <a href="https://www.linkedin.com/in/harish-pariihar/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
+                <a href="https://www.linkedin.com/in/harish-rajjput/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">
                   <Linkedin className="h-4 w-4" />
                 </a>
                 <a href="https://www.instagram.com/harish.phr/" target="_blank" rel="noreferrer" className="glass glass-hover inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--neon)]">

@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_URL } from "@/lib/portfolio-data";
 
 function NotFoundComponent() {
   return (
@@ -104,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "twitter:description",
         content: "React.js Developer | Dashboard & Automation Specialist.",
       },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     scripts: [
       {
@@ -113,10 +114,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Harish Parihar",
-          alternateName: ["Harish Rajput", "harish.phr"],
+          alternateName: ["Harish Rajput", "harish.phr", "Harish Parihar developer"],
           jobTitle: "Front-End Developer",
+          url: SITE_URL,
+          email: "harish.pariihar@gmail.com",
+          telephone: "+91-8278771093",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Kunihar, Solan",
+            addressRegion: "Himachal Pradesh",
+            addressCountry: "IN",
+          },
           description:
-            "Front-End Developer with 1.5+ years of experience specializing in React.js, JavaScript, and scalable web applications.",
+            "Harish Parihar — Front-End Developer with 1.5+ years of experience specializing in React.js, JavaScript, and scalable web applications.",
           knowsAbout: [
             "React.js",
             "JavaScript",
@@ -124,11 +134,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "Front-End Development",
             "Dashboard Development",
             "API Integration",
+            "WordPress",
+            "Google Apps Script",
           ],
           sameAs: [
             "https://www.linkedin.com/in/harish-rajjput/",
             "https://www.instagram.com/harish.phr/",
           ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Harish Parihar",
+          url: SITE_URL,
+          author: { "@type": "Person", name: "Harish Parihar" },
         }),
       },
     ],
@@ -143,6 +165,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap",
       },
+      { rel: "canonical", href: SITE_URL },
+      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
   }),
   shellComponent: RootShell,
