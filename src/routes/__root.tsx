@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_URL } from "@/lib/portfolio-data";
 
 function NotFoundComponent() {
   return (
@@ -77,14 +78,81 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Harish Parihar — Front-End Developer & React.js Specialist" },
+      {
+        name: "description",
+        content:
+          "Harish Parihar — Front-End Developer with 1.5+ years of experience building modern, scalable web apps with React.js, JavaScript, and API integrations.",
+      },
+      { name: "author", content: "Harish Parihar" },
+      {
+        name: "keywords",
+        content:
+          "Harish Parihar, Harish Rajput, Harish Parihar portfolio, Harish Parihar developer, Front-End Developer, React.js Developer, JavaScript Developer, Dashboard Developer, harish.phr",
+      },
+      { name: "google-site-verification", content: "K_ZOBKy8GOYjydl0vwAMN_E8yQZWIdjZFdTzljSIxnU" },
+      { property: "og:title", content: "Harish Parihar — Front-End Developer & React.js Specialist" },
+      {
+        property: "og:description",
+        content:
+          "Official portfolio of Harish Parihar — React.js Developer building premium, scalable web experiences.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Harish Parihar" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Harish Parihar — Front-End Developer" },
+      {
+        name: "twitter:description",
+        content: "React.js Developer | Dashboard & Automation Specialist.",
+      },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Harish Parihar",
+          alternateName: ["Harish Rajput", "harish.phr", "Harish Parihar developer"],
+          jobTitle: "Front-End Developer",
+          url: SITE_URL,
+          email: "harish.pariihar@gmail.com",
+          telephone: "+91-8278771093",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Kunihar, Solan",
+            addressRegion: "Himachal Pradesh",
+            addressCountry: "IN",
+          },
+          description:
+            "Harish Parihar — Front-End Developer with 1.5+ years of experience specializing in React.js, JavaScript, and scalable web applications.",
+          knowsAbout: [
+            "React.js",
+            "JavaScript",
+            "TypeScript",
+            "Front-End Development",
+            "Dashboard Development",
+            "API Integration",
+            "WordPress",
+            "Google Apps Script",
+          ],
+          sameAs: [
+            "https://www.linkedin.com/in/harish-rajjput/",
+            "https://www.instagram.com/harish.phr/",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Harish Parihar",
+          url: SITE_URL,
+          author: { "@type": "Person", name: "Harish Parihar" },
+        }),
+      },
     ],
     links: [
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
@@ -100,6 +168,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap",
       },
+      { rel: "canonical", href: SITE_URL },
+      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
   }),
   shellComponent: RootShell,
